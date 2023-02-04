@@ -3,6 +3,7 @@ import pyaudio
 import pyttsx3
 import random as ra
 import webbrowser as web
+import time 
 
 class User:
     user_name = ""
@@ -73,8 +74,18 @@ def internet_zapros(*args: tuple):
 
     zapros = " ".join(args[0])
     web.open('https://www.google.com/search?q=' + zapros)
-    speech_play("Вот что было найдено по запросу"+zapros)          
+    speech_play("Вот что было найдено по запросу"+zapros)
     
+#Напоминалка и таймер
+def timer(*args: tuple):
+    speech_play("О чём вам напомнить?")
+    text = str(zapis_and_analiz())
+    speech_play("Через сколько минут?")
+    local_time = float(zapis_and_analiz())
+    local_time = local_time * 60
+    time.sleep(local_time)
+    print(text)
+
 #обработка команд
 def moduls_start(command_name: str, *args: list):
 
@@ -88,6 +99,7 @@ commands = {
     ("Привет", "день", "вечер", "Hi", "Здравствуй"): start_speech,
     ("стоп", "закончили", "конец"): finish_speech,
     ("найди", "скажи", "когда", "Почему"): internet_zapros,
+    ("Поставь", "Напомни"): timer,
 }
 
 if __name__ == '__main__':
