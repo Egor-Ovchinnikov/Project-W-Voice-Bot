@@ -84,7 +84,7 @@ def timer(*args: tuple):
     local_time = float(zapis_and_analiz())
     local_time = local_time * 60
     time.sleep(local_time)
-    print(text)
+    speech_play(text)
 
 #обработка команд
 def moduls_start(command_name: str, *args: list):
