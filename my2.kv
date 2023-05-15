@@ -1,0 +1,16 @@
+<Container>:
+	orientation: "vertical"
+
+    MDTopAppBar:
+        title: "Project-W"
+		right_action_items: [["dots-vertical", lambda x: app.callback(x), "answers"]]
+
+	BoxLayout:
+		halign: "center"
+		size_hint: 0.95, 0.15
+		padding: [100, 0, 90, 230]
+		MDRectangleFlatIconButton:
+			text: "Ask a Question"
+			width: dp(1000)
+			on_press: root.say_assisten()
+  
